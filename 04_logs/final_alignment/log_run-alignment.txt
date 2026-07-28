@@ -1,0 +1,1089 @@
+PS D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final>
+PS D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final> cd "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final"
+>> Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+>> .\run_alignment.ps1\
+.\run_alignment.ps1\ : The term '.\run_alignment.ps1\' is not recognized as the name of a cmdlet, function, 
+script file, or operable program. Check the spelling of the name, or if a path was included, verify that 
+the path is correct and try again.
+At line:3 char:1
++ .\run_alignment.ps1\
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (.\run_alignment.ps1\:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final> cd "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final"
+>> Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+>> .\run_alignment.ps1 
+=== A: mf on ml1m ===
+mô hình  : mf   ablation: none
+thiết bị : cpu   |  dữ liệu: ml-1m.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+    epoch  10 | loss 0.2394 | val HR@10 0.0581
+    epoch  20 | loss 0.2222 | val HR@10 0.0575
+    epoch  30 | loss 0.2159 | val HR@10 0.0603
+    epoch  40 | loss 0.2132 | val HR@10 0.0608
+    epoch  50 | loss 0.2120 | val HR@10 0.0586
+    epoch  60 | loss 0.2112 | val HR@10 0.0563
+    epoch  70 | loss 0.2101 | val HR@10 0.0575
+    epoch  80 | loss 0.2091 | val HR@10 0.0593
+    epoch  90 | loss 0.2091 | val HR@10 0.0599
+    epoch 100 | loss 0.2094 | val HR@10 0.0576
+    dừng sớm ở epoch 100
+  -> HR@10 0.0536 NDCG@10 0.0272 AD@10 883 (7.83 phút)
+
+[base] seed 2024
+    epoch  10 | loss 0.2391 | val HR@10 0.0588
+    epoch  20 | loss 0.2222 | val HR@10 0.0604
+    epoch  30 | loss 0.2159 | val HR@10 0.0594
+    epoch  40 | loss 0.2137 | val HR@10 0.0581
+    epoch  50 | loss 0.2120 | val HR@10 0.0588
+    epoch  60 | loss 0.2104 | val HR@10 0.0576
+    epoch  70 | loss 0.2106 | val HR@10 0.0551
+    epoch  80 | loss 0.2091 | val HR@10 0.0573
+    dừng sớm ở epoch 80
+  -> HR@10 0.0578 NDCG@10 0.0294 AD@10 875 (6.13 phút)
+
+[base] seed 3407
+    epoch  10 | loss 0.2392 | val HR@10 0.0568
+    epoch  20 | loss 0.2226 | val HR@10 0.0614
+    epoch  30 | loss 0.2164 | val HR@10 0.0601
+    epoch  40 | loss 0.2133 | val HR@10 0.0568
+    epoch  50 | loss 0.2120 | val HR@10 0.0566
+    epoch  60 | loss 0.2109 | val HR@10 0.0560
+    epoch  70 | loss 0.2098 | val HR@10 0.0571
+    epoch  80 | loss 0.2100 | val HR@10 0.0589
+    dừng sớm ở epoch 80
+  -> HR@10 0.0594 NDCG@10 0.0301 AD@10 861 (6.11 phút)
+
+
+==============================================================================
+KẾT QUẢ — MF trên ml-1m.txt
+==============================================================================
+HR@5       0.0333 ± 0.0016
+HR@10      0.0570 ± 0.0030
+NDCG@5     0.0213 ± 0.0008
+NDCG@10    0.0289 ± 0.0015
+AD@5       666.3 ± 20.5
+AD@10      873.0 ± 11.1
+
+Đã lưu -> A_mf_ml1m.json
+=== A: fpmc on ml1m ===
+mô hình  : fpmc   ablation: none
+thiết bị : cpu   |  dữ liệu: ml-1m.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+    epoch  10 | loss 0.1528 | val HR@10 0.1826
+    epoch  20 | loss 0.1418 | val HR@10 0.1950
+    epoch  30 | loss 0.1378 | val HR@10 0.1952
+    epoch  40 | loss 0.1364 | val HR@10 0.1969
+    epoch  50 | loss 0.1352 | val HR@10 0.1965
+    epoch  60 | loss 0.1348 | val HR@10 0.1955
+    epoch  70 | loss 0.1345 | val HR@10 0.1983
+    epoch  80 | loss 0.1334 | val HR@10 0.1978
+    epoch  90 | loss 0.1338 | val HR@10 0.1950
+    epoch 100 | loss 0.1337 | val HR@10 0.1977
+    epoch 110 | loss 0.1336 | val HR@10 0.1980
+    epoch 120 | loss 0.1329 | val HR@10 0.1990
+    epoch 130 | loss 0.1332 | val HR@10 0.1977
+    epoch 140 | loss 0.1330 | val HR@10 0.1965
+    epoch 150 | loss 0.1326 | val HR@10 0.1980
+  -> HR@10 0.1866 NDCG@10 0.0995 AD@10 1393 (12.79 phút)
+
+[base] seed 2024
+    epoch  10 | loss 0.1536 | val HR@10 0.1793
+    epoch  20 | loss 0.1424 | val HR@10 0.1924
+    epoch  30 | loss 0.1383 | val HR@10 0.1944
+    epoch  40 | loss 0.1362 | val HR@10 0.1950
+    epoch  50 | loss 0.1355 | val HR@10 0.1962
+    epoch  60 | loss 0.1350 | val HR@10 0.1942
+    epoch  70 | loss 0.1339 | val HR@10 0.1980
+    epoch  80 | loss 0.1339 | val HR@10 0.1962
+    epoch  90 | loss 0.1338 | val HR@10 0.1978
+    epoch 100 | loss 0.1335 | val HR@10 0.2000
+    epoch 110 | loss 0.1335 | val HR@10 0.1987
+    epoch 120 | loss 0.1333 | val HR@10 0.1972
+    epoch 130 | loss 0.1334 | val HR@10 0.1978
+    epoch 140 | loss 0.1331 | val HR@10 0.1990
+    epoch 150 | loss 0.1331 | val HR@10 0.2003
+  -> HR@10 0.1921 NDCG@10 0.1016 AD@10 1404 (12.69 phút)
+
+[base] seed 3407
+    epoch  10 | loss 0.1531 | val HR@10 0.1781
+    epoch  20 | loss 0.1423 | val HR@10 0.1935
+    epoch  30 | loss 0.1382 | val HR@10 0.1947
+    epoch  40 | loss 0.1362 | val HR@10 0.1970
+    epoch  50 | loss 0.1355 | val HR@10 0.1995
+    epoch  60 | loss 0.1345 | val HR@10 0.1980
+    epoch  70 | loss 0.1344 | val HR@10 0.1985
+    epoch  80 | loss 0.1342 | val HR@10 0.1988
+    epoch  90 | loss 0.1334 | val HR@10 0.1967
+    epoch 100 | loss 0.1338 | val HR@10 0.1964
+    epoch 110 | loss 0.1332 | val HR@10 0.1955
+    dừng sớm ở epoch 110
+  -> HR@10 0.1896 NDCG@10 0.1013 AD@10 1395 (9.31 phút)
+
+
+==============================================================================
+KẾT QUẢ — FPMC trên ml-1m.txt
+==============================================================================
+HR@5       0.1224 ± 0.0023
+HR@10      0.1894 ± 0.0027
+NDCG@5     0.0792 ± 0.0011
+NDCG@10    0.1008 ± 0.0012
+AD@5       1096.0 ± 15.1
+AD@10      1397.3 ± 5.9
+
+Đã lưu -> A_fpmc_ml1m.json
+=== A: transformer on ml1m ===
+mô hình  : transformer   ablation: none
+thiết bị : cpu   |  dữ liệu: ml-1m.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py:337: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, layers)
+    epoch  10 | loss 7.4593 | val HR@10 0.0298
+    epoch  20 | loss 7.4282 | val HR@10 0.0306
+    epoch  30 | loss 7.4248 | val HR@10 0.0320
+    epoch  40 | loss 7.4013 | val HR@10 0.0338
+    epoch  50 | loss 7.3541 | val HR@10 0.0323
+    epoch  60 | loss 7.3029 | val HR@10 0.0276
+    epoch  70 | loss 7.2508 | val HR@10 0.0283
+    epoch  80 | loss 7.1911 | val HR@10 0.0336
+    epoch  90 | loss 7.1154 | val HR@10 0.0389
+    epoch 100 | loss 7.0297 | val HR@10 0.0460
+    epoch 110 | loss 6.9504 | val HR@10 0.0492
+    epoch 120 | loss 6.8736 | val HR@10 0.0543
+    epoch 130 | loss 6.7936 | val HR@10 0.0578
+    epoch 140 | loss 6.7169 | val HR@10 0.0583
+    epoch 150 | loss 6.6510 | val HR@10 0.0614
+  -> HR@10 0.0566 NDCG@10 0.0286 AD@10 410 (150.78 phút)
+
+[base] seed 2024
+    epoch  10 | loss 7.4564 | val HR@10 0.0313
+    epoch  20 | loss 7.4302 | val HR@10 0.0306
+    epoch  30 | loss 7.4255 | val HR@10 0.0306
+    epoch  40 | loss 7.3903 | val HR@10 0.0305
+    epoch  50 | loss 7.3390 | val HR@10 0.0313
+    epoch  60 | loss 7.2923 | val HR@10 0.0326
+    epoch  70 | loss 7.2361 | val HR@10 0.0310
+    epoch  80 | loss 7.1758 | val HR@10 0.0358
+    epoch  90 | loss 7.0941 | val HR@10 0.0387
+    epoch 100 | loss 7.0051 | val HR@10 0.0470
+    epoch 110 | loss 6.9250 | val HR@10 0.0478
+    epoch 120 | loss 6.8528 | val HR@10 0.0495
+    epoch 130 | loss 6.7785 | val HR@10 0.0515
+    epoch 140 | loss 6.7024 | val HR@10 0.0558
+    epoch 150 | loss 6.6434 | val HR@10 0.0596
+  -> HR@10 0.0591 NDCG@10 0.0295 AD@10 406 (152.47 phút)
+
+[base] seed 3407
+    epoch  10 | loss 7.4548 | val HR@10 0.0310
+    epoch  20 | loss 7.4339 | val HR@10 0.0308
+    epoch  30 | loss 7.4219 | val HR@10 0.0311
+    epoch  40 | loss 7.3996 | val HR@10 0.0346
+    epoch  50 | loss 7.3460 | val HR@10 0.0343
+    epoch  60 | loss 7.2969 | val HR@10 0.0333
+    epoch  70 | loss 7.2440 | val HR@10 0.0341
+    epoch  80 | loss 7.1885 | val HR@10 0.0329
+    epoch  90 | loss 7.1240 | val HR@10 0.0377
+    epoch 100 | loss 7.0399 | val HR@10 0.0425
+    epoch 110 | loss 6.9608 | val HR@10 0.0474
+    epoch 120 | loss 6.8836 | val HR@10 0.0493
+    epoch 130 | loss 6.8063 | val HR@10 0.0548
+    epoch 140 | loss 6.7347 | val HR@10 0.0563
+    epoch 150 | loss 6.6681 | val HR@10 0.0575
+  -> HR@10 0.0538 NDCG@10 0.0269 AD@10 368 (150.88 phút)
+
+
+==============================================================================
+KẾT QUẢ — TRANSFORMER trên ml-1m.txt
+==============================================================================
+HR@5       0.0344 ± 0.0029
+HR@10      0.0565 ± 0.0027
+NDCG@5     0.0212 ± 0.0013
+NDCG@10    0.0283 ± 0.0013
+AD@5       264.7 ± 12.7
+AD@10      394.7 ± 23.2
+
+Đã lưu -> A_transformer_ml1m.json
+=== A: mf on ml10m ===
+mô hình  : mf   ablation: none
+thiết bị : cuda   |  dữ liệu: ml-10m.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+    epoch  10 | loss 0.2211 | val HR@10 0.0584
+    epoch  20 | loss 0.2205 | val HR@10 0.0580
+    epoch  30 | loss 0.2205 | val HR@10 0.0575
+    epoch  40 | loss 0.2205 | val HR@10 0.0579
+    epoch  50 | loss 0.2205 | val HR@10 0.0567
+    epoch  60 | loss 0.2204 | val HR@10 0.0561
+    epoch  70 | loss 0.2204 | val HR@10 0.0573
+    dừng sớm ở epoch 70
+Traceback (most recent call last):
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 711, in <module>
+    main()
+    ~~~~^^
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 656, in main
+    r = run_one(variant == "sirm", seed, seqs, args, device)
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 567, in run_one
+    res["A"] = alignment_A(model, C, num_items, device)
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 223, in alignment_A
+    rv = np.asarray(C[ri, rj]).ravel()
+                    ~^^^^^^^^
+  File "C:\Python314\Lib\site-packages\scipy\sparse\_index.py", line 30, in __getitem__
+    index, new_shape, _, _ = _validate_indices(key, self.shape, self.format)
+                             ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\scipy\sparse\_index.py", line 407, in _validate_indices
+    idx = _asindices(idx, N, self_format)
+  File "C:\Python314\Lib\site-packages\scipy\sparse\_index.py", line 458, in _asindices
+    raise IndexError(f'index ({max_indx}) out of range')
+IndexError: index (7869) out of range
+=== A: fpmc on ml10m ===
+mô hình  : fpmc   ablation: none
+thiết bị : cuda   |  dữ liệu: ml-10m.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+    epoch  10 | loss 0.1408 | val HR@10 0.1299
+    epoch  20 | loss 0.1406 | val HR@10 0.1302
+    epoch  30 | loss 0.1405 | val HR@10 0.1298
+    epoch  40 | loss 0.1405 | val HR@10 0.1293
+    epoch  50 | loss 0.1404 | val HR@10 0.1309
+    epoch  60 | loss 0.1402 | val HR@10 0.1327
+    epoch  70 | loss 0.1402 | val HR@10 0.1299
+    epoch  80 | loss 0.1401 | val HR@10 0.1320
+    epoch  90 | loss 0.1403 | val HR@10 0.1321
+    epoch 100 | loss 0.1401 | val HR@10 0.1302
+    epoch 110 | loss 0.1402 | val HR@10 0.1302
+    epoch 120 | loss 0.1400 | val HR@10 0.1332
+    epoch 130 | loss 0.1402 | val HR@10 0.1299
+    epoch 140 | loss 0.1401 | val HR@10 0.1315
+    epoch 150 | loss 0.1400 | val HR@10 0.1320
+Traceback (most recent call last):
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 711, in <module>
+    main()
+    ~~~~^^
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 656, in main
+    r = run_one(variant == "sirm", seed, seqs, args, device)
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 567, in run_one
+    res["A"] = alignment_A(model, C, num_items, device)
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 223, in alignment_A
+    rv = np.asarray(C[ri, rj]).ravel()
+                    ~^^^^^^^^
+  File "C:\Python314\Lib\site-packages\scipy\sparse\_index.py", line 30, in __getitem__
+    index, new_shape, _, _ = _validate_indices(key, self.shape, self.format)
+                             ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\scipy\sparse\_index.py", line 407, in _validate_indices
+    idx = _asindices(idx, N, self_format)
+  File "C:\Python314\Lib\site-packages\scipy\sparse\_index.py", line 458, in _asindices
+    raise IndexError(f'index ({max_indx}) out of range')
+IndexError: index (7869) out of range
+=== A: transformer on ml10m ===
+mô hình  : transformer   ablation: none
+thiết bị : cuda   |  dữ liệu: ml-10m.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py:337: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, layers)
+[W726 05:17:49.000000000 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 6448742400 bytes (free: 0, total: 4294443008).
+[W726 05:17:50.000000000 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 6448742400 bytes (free: 0, total: 4294443008).
+Traceback (most recent call last):
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 711, in <module>
+    main()
+    ~~~~^^
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 656, in main
+    r = run_one(variant == "sirm", seed, seqs, args, device)
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 546, in run_one
+    loss = train_ce(model, loader, opt, device)
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 449, in train_ce
+    opt.zero_grad(); loss.backward()
+                     ~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\site-packages\torch\_tensor.py", line 623, in backward
+    torch.autograd.backward(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        self, gradient, retain_graph, create_graph, inputs=inputs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\site-packages\torch\autograd\__init__.py", line 395, in backward
+    _engine_run_backward(
+    ~~~~~~~~~~~~~~~~~~~~^
+        tensors,
+        ^^^^^^^^
+    ...<5 lines>...
+        accumulate_grad=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python314\Lib\site-packages\torch\autograd\graph.py", line 979, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass    
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^    
+        t_outputs, *args, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )  # Calls into the C++ engine to run the backward pass
+    ^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.01 GiB. GPU 0 has a total capacity of 4.00 GiB of which 0 bytes is free. Of the allocated memory 16.24 GiB is allocated by PyTorch, and 153.80 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+=== A: mf on amazon ===
+mô hình  : mf   ablation: none
+thiết bị : cuda   |  dữ liệu: AmazonBook.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+    epoch  10 | loss 0.4179 | val HR@10 0.0395
+    epoch  20 | loss 0.3914 | val HR@10 0.0376
+    epoch  30 | loss 0.3840 | val HR@10 0.0309
+    epoch  40 | loss 0.3806 | val HR@10 0.0243
+    epoch  50 | loss 0.3793 | val HR@10 0.0215
+    epoch  60 | loss 0.3787 | val HR@10 0.0205
+    epoch  70 | loss 0.3783 | val HR@10 0.0198
+    dừng sớm ở epoch 70
+Traceback (most recent call last):
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 711, in <module>
+    main()
+    ~~~~^^
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 656, in main
+    r = run_one(variant == "sirm", seed, seqs, args, device)
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 567, in run_one
+    res["A"] = alignment_A(model, C, num_items, device)
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 223, in alignment_A
+    rv = np.asarray(C[ri, rj]).ravel()
+                    ~^^^^^^^^
+  File "C:\Python314\Lib\site-packages\scipy\sparse\_index.py", line 30, in __getitem__
+    index, new_shape, _, _ = _validate_indices(key, self.shape, self.format)
+                             ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\scipy\sparse\_index.py", line 407, in _validate_indices
+    idx = _asindices(idx, N, self_format)
+  File "C:\Python314\Lib\site-packages\scipy\sparse\_index.py", line 458, in _asindices
+    raise IndexError(f'index ({max_indx}) out of range')
+IndexError: index (24914) out of range
+=== A: fpmc on amazon ===
+mô hình  : fpmc   ablation: none
+thiết bị : cuda   |  dữ liệu: AmazonBook.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+    epoch  10 | loss 0.2649 | val HR@10 0.0605
+    epoch  20 | loss 0.2376 | val HR@10 0.0609
+    epoch  30 | loss 0.2310 | val HR@10 0.0616
+    epoch  40 | loss 0.2277 | val HR@10 0.0617
+    epoch  50 | loss 0.2256 | val HR@10 0.0611
+    epoch  60 | loss 0.2242 | val HR@10 0.0607
+    epoch  70 | loss 0.2244 | val HR@10 0.0599
+    epoch  80 | loss 0.2242 | val HR@10 0.0607
+    epoch  90 | loss 0.2234 | val HR@10 0.0606
+    epoch 100 | loss 0.2237 | val HR@10 0.0605
+    dừng sớm ở epoch 100
+Traceback (most recent call last):
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 711, in <module>
+    main()
+    ~~~~^^
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 656, in main
+    r = run_one(variant == "sirm", seed, seqs, args, device)
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 567, in run_one
+    res["A"] = alignment_A(model, C, num_items, device)
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 223, in alignment_A
+    rv = np.asarray(C[ri, rj]).ravel()
+                    ~^^^^^^^^
+  File "C:\Python314\Lib\site-packages\scipy\sparse\_index.py", line 30, in __getitem__
+    index, new_shape, _, _ = _validate_indices(key, self.shape, self.format)
+                             ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\scipy\sparse\_index.py", line 407, in _validate_indices
+    idx = _asindices(idx, N, self_format)
+  File "C:\Python314\Lib\site-packages\scipy\sparse\_index.py", line 458, in _asindices
+    raise IndexError(f'index ({max_indx}) out of range')
+IndexError: index (24914) out of range
+=== A: transformer on amazon ===
+mô hình  : transformer   ablation: none
+thiết bị : cuda   |  dữ liệu: AmazonBook.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py:337: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, layers)
+[W726 05:29:12.000000000 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 20411580416 bytes (free: 0, total: 4294443008).
+[W726 05:29:19.000000000 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 20411580416 bytes (free: 0, total: 4294443008).
+Traceback (most recent call last):
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 711, in <module>
+    main()
+    ~~~~^^
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 656, in main
+    r = run_one(variant == "sirm", seed, seqs, args, device)
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 546, in run_one
+    loss = train_ce(model, loader, opt, device)
+  File "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py", line 447, in train_ce
+    logits = model.encode(inp, V) @ V.t()
+             ~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 19.01 GiB. GPU 0 has a total capacity of 4.00 GiB of which 0 bytes is free. Of the allocated memory 4.24 GiB is allocated by PyTorch, and 156.09 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+XONG. Gá»­i láº¡i 9 file A_*.json
+PS D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final> cd "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final"
+>> Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+>> .\run_alignment.ps1
+=== A: mf on ml1m ===
+mô hình  : mf   ablation: none
+thiết bị : cpu   |  dữ liệu: ml-1m.txt
+seed     : [42, 2024, 3407]
+
+(chạy tiếp: bỏ qua lượt đã có)
+
+[base] seed 42 — đã có, bỏ qua
+[base] seed 2024 — đã có, bỏ qua
+[base] seed 3407 — đã có, bỏ qua
+
+==============================================================================
+KẾT QUẢ — MF trên ml-1m.txt
+==============================================================================
+HR@5       0.0333 ± 0.0016
+HR@10      0.0570 ± 0.0030
+NDCG@5     0.0213 ± 0.0008
+NDCG@10    0.0289 ± 0.0015
+AD@5       666.3 ± 20.5
+AD@10      873.0 ± 11.1
+
+Đã lưu -> A_mf_ml1m.json
+=== A: fpmc on ml1m ===
+mô hình  : fpmc   ablation: none
+thiết bị : cpu   |  dữ liệu: ml-1m.txt
+seed     : [42, 2024, 3407]
+
+(chạy tiếp: bỏ qua lượt đã có)
+
+[base] seed 42 — đã có, bỏ qua
+[base] seed 2024 — đã có, bỏ qua
+[base] seed 3407 — đã có, bỏ qua
+
+==============================================================================
+KẾT QUẢ — FPMC trên ml-1m.txt
+==============================================================================
+HR@5       0.1224 ± 0.0023
+HR@10      0.1894 ± 0.0027
+NDCG@5     0.0792 ± 0.0011
+NDCG@10    0.1008 ± 0.0012
+AD@5       1096.0 ± 15.1
+AD@10      1397.3 ± 5.9
+
+Đã lưu -> A_fpmc_ml1m.json
+=== A: transformer on ml1m ===
+mô hình  : transformer   ablation: none
+thiết bị : cpu   |  dữ liệu: ml-1m.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py:337: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, layers)
+    epoch  10 | loss 6.9325 | val HR@10 0.0555
+    epoch  20 | loss 6.2984 | val HR@10 0.0977
+    epoch  30 | loss 5.9233 | val HR@10 0.1230
+    epoch  40 | loss 5.6951 | val HR@10 0.1402
+    epoch  50 | loss 5.5312 | val HR@10 0.1495
+    epoch  60 | loss 5.4045 | val HR@10 0.1565
+    epoch  70 | loss 5.3156 | val HR@10 0.1636
+    epoch  80 | loss 5.2402 | val HR@10 0.1642
+    epoch  90 | loss 5.1800 | val HR@10 0.1707
+    epoch 100 | loss 5.1345 | val HR@10 0.1697
+    epoch 110 | loss 5.0949 | val HR@10 0.1704
+    epoch 120 | loss 5.0583 | val HR@10 0.1728
+    epoch 130 | loss 5.0309 | val HR@10 0.1747
+    epoch 140 | loss 5.0038 | val HR@10 0.1732
+    epoch 150 | loss 4.9884 | val HR@10 0.1758
+  -> HR@10 0.1586 NDCG@10 0.0876 AD@10 2002 (151.62 phút)
+
+[base] seed 2024
+    epoch  10 | loss 6.9579 | val HR@10 0.0570
+    epoch  20 | loss 6.3170 | val HR@10 0.0942
+    epoch  30 | loss 5.9473 | val HR@10 0.1230
+    epoch  40 | loss 5.7131 | val HR@10 0.1430
+    epoch  50 | loss 5.5614 | val HR@10 0.1553
+    epoch  60 | loss 5.4484 | val HR@10 0.1573
+    epoch  70 | loss 5.3545 | val HR@10 0.1614
+    epoch  80 | loss 5.2712 | val HR@10 0.1690
+    epoch  90 | loss 5.2084 | val HR@10 0.1719
+    epoch 100 | loss 5.1526 | val HR@10 0.1727
+    epoch 110 | loss 5.1106 | val HR@10 0.1690
+    epoch 120 | loss 5.0730 | val HR@10 0.1699
+    epoch 130 | loss 5.0414 | val HR@10 0.1745
+    epoch 140 | loss 5.0112 | val HR@10 0.1733
+    epoch 150 | loss 4.9873 | val HR@10 0.1760
+  -> HR@10 0.1642 NDCG@10 0.0911 AD@10 2044 (149.24 phút)
+
+[base] seed 3407
+    epoch  10 | loss 6.9747 | val HR@10 0.0444
+    epoch  20 | loss 6.3581 | val HR@10 0.0891
+    epoch  30 | loss 5.9545 | val HR@10 0.1179
+    epoch  40 | loss 5.7216 | val HR@10 0.1402
+    epoch  50 | loss 5.5531 | val HR@10 0.1450
+    epoch  60 | loss 5.4280 | val HR@10 0.1568
+    epoch  70 | loss 5.3309 | val HR@10 0.1591
+    epoch  80 | loss 5.2515 | val HR@10 0.1646
+    epoch  90 | loss 5.1894 | val HR@10 0.1651
+    epoch 100 | loss 5.1351 | val HR@10 0.1639
+    epoch 110 | loss 5.0948 | val HR@10 0.1684
+    epoch 120 | loss 5.0581 | val HR@10 0.1695
+    epoch 130 | loss 5.0268 | val HR@10 0.1669
+    epoch 140 | loss 4.9999 | val HR@10 0.1702
+    epoch 150 | loss 4.9819 | val HR@10 0.1702
+  -> HR@10 0.1588 NDCG@10 0.0877 AD@10 1971 (149.74 phút)
+
+
+==============================================================================
+KẾT QUẢ — TRANSFORMER trên ml-1m.txt
+==============================================================================
+HR@5       0.1083 ± 0.0022
+HR@10      0.1605 ± 0.0032
+NDCG@5     0.0720 ± 0.0017
+NDCG@10    0.0888 ± 0.0020
+AD@5       1731.7 ± 47.4
+AD@10      2005.7 ± 36.6
+
+Đã lưu -> A_transformer_ml1m.json
+=== A: mf on ml10m ===
+mô hình  : mf   ablation: none
+thiết bị : cuda   |  dữ liệu: ml-10m.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+    epoch  10 | loss 0.2211 | val HR@10 0.0584
+    epoch  20 | loss 0.2205 | val HR@10 0.0580
+    epoch  30 | loss 0.2205 | val HR@10 0.0575
+    epoch  40 | loss 0.2205 | val HR@10 0.0579
+    epoch  50 | loss 0.2205 | val HR@10 0.0567
+    epoch  60 | loss 0.2204 | val HR@10 0.0561
+    epoch  70 | loss 0.2204 | val HR@10 0.0573
+    dừng sớm ở epoch 70
+  -> HR@10 0.0580 NDCG@10 0.0308 AD@10 379 (38.48 phút)
+
+[base] seed 2024
+    epoch  10 | loss 0.2211 | val HR@10 0.0572
+    epoch  20 | loss 0.2205 | val HR@10 0.0577
+    epoch  30 | loss 0.2204 | val HR@10 0.0562
+    epoch  40 | loss 0.2202 | val HR@10 0.0571
+    epoch  50 | loss 0.2202 | val HR@10 0.0557
+    epoch  60 | loss 0.2203 | val HR@10 0.0576
+    epoch  70 | loss 0.2204 | val HR@10 0.0573
+    epoch  80 | loss 0.2204 | val HR@10 0.0572
+    dừng sớm ở epoch 80
+  -> HR@10 0.0571 NDCG@10 0.0301 AD@10 372 (43.3 phút)
+
+[base] seed 3407
+    epoch  10 | loss 0.2211 | val HR@10 0.0569
+    epoch  20 | loss 0.2203 | val HR@10 0.0573
+    epoch  30 | loss 0.2203 | val HR@10 0.0575
+    epoch  40 | loss 0.2205 | val HR@10 0.0578
+    epoch  50 | loss 0.2204 | val HR@10 0.0571
+    epoch  60 | loss 0.2204 | val HR@10 0.0567
+    epoch  70 | loss 0.2206 | val HR@10 0.0572
+    epoch  80 | loss 0.2202 | val HR@10 0.0579
+    epoch  90 | loss 0.2203 | val HR@10 0.0572
+    epoch 100 | loss 0.2205 | val HR@10 0.0573
+    epoch 110 | loss 0.2202 | val HR@10 0.0578
+    epoch 120 | loss 0.2205 | val HR@10 0.0571
+    epoch 130 | loss 0.2204 | val HR@10 0.0575
+    epoch 140 | loss 0.2202 | val HR@10 0.0569
+    dừng sớm ở epoch 140
+  -> HR@10 0.0573 NDCG@10 0.0297 AD@10 363 (77.96 phút)
+
+
+==============================================================================
+KẾT QUẢ — MF trên ml-10m.txt
+==============================================================================
+HR@5       0.0357 ± 0.0002
+HR@10      0.0575 ± 0.0005
+NDCG@5     0.0232 ± 0.0004
+NDCG@10    0.0302 ± 0.0006
+AD@5       262.7 ± 1.2
+AD@10      371.3 ± 8.0
+
+Đã lưu -> A_mf_ml10m.json
+=== A: fpmc on ml10m ===
+mô hình  : fpmc   ablation: none
+thiết bị : cuda   |  dữ liệu: ml-10m.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+    epoch  10 | loss 0.1408 | val HR@10 0.1299
+    epoch  20 | loss 0.1406 | val HR@10 0.1302
+    epoch  30 | loss 0.1405 | val HR@10 0.1298
+    epoch  40 | loss 0.1405 | val HR@10 0.1293
+    epoch  50 | loss 0.1404 | val HR@10 0.1309
+    epoch  60 | loss 0.1402 | val HR@10 0.1327
+    epoch  70 | loss 0.1402 | val HR@10 0.1299
+    epoch  80 | loss 0.1401 | val HR@10 0.1320
+    epoch  90 | loss 0.1403 | val HR@10 0.1321
+    epoch 100 | loss 0.1401 | val HR@10 0.1302
+    epoch 110 | loss 0.1402 | val HR@10 0.1302
+    epoch 120 | loss 0.1400 | val HR@10 0.1332
+    epoch 130 | loss 0.1402 | val HR@10 0.1299
+    epoch 140 | loss 0.1401 | val HR@10 0.1315
+    epoch 150 | loss 0.1400 | val HR@10 0.1320
+  -> HR@10 0.1292 NDCG@10 0.0674 AD@10 1082 (98.55 phút)
+
+[base] seed 2024
+    epoch  10 | loss 0.1408 | val HR@10 0.1271
+    epoch  20 | loss 0.1406 | val HR@10 0.1295
+    epoch  30 | loss 0.1405 | val HR@10 0.1306
+    epoch  40 | loss 0.1405 | val HR@10 0.1309
+    epoch  50 | loss 0.1404 | val HR@10 0.1305
+    epoch  60 | loss 0.1402 | val HR@10 0.1305
+    epoch  70 | loss 0.1402 | val HR@10 0.1310
+    epoch  80 | loss 0.1401 | val HR@10 0.1304
+    epoch  90 | loss 0.1403 | val HR@10 0.1315
+    epoch 100 | loss 0.1401 | val HR@10 0.1319
+    epoch 110 | loss 0.1402 | val HR@10 0.1296
+    epoch 120 | loss 0.1401 | val HR@10 0.1319
+    epoch 130 | loss 0.1400 | val HR@10 0.1317
+    epoch 140 | loss 0.1400 | val HR@10 0.1316
+    epoch 150 | loss 0.1399 | val HR@10 0.1309
+  -> HR@10 0.1264 NDCG@10 0.0656 AD@10 1112 (87.11 phút)
+
+[base] seed 3407
+    epoch  10 | loss 0.1409 | val HR@10 0.1291
+    epoch  20 | loss 0.1404 | val HR@10 0.1301
+    epoch  30 | loss 0.1404 | val HR@10 0.1309
+    epoch  40 | loss 0.1407 | val HR@10 0.1310
+    epoch  50 | loss 0.1403 | val HR@10 0.1309
+    epoch  60 | loss 0.1403 | val HR@10 0.1306
+    epoch  70 | loss 0.1401 | val HR@10 0.1304
+    epoch  80 | loss 0.1401 | val HR@10 0.1311
+    epoch  90 | loss 0.1400 | val HR@10 0.1308
+    epoch 100 | loss 0.1401 | val HR@10 0.1306
+    epoch 110 | loss 0.1402 | val HR@10 0.1328
+    epoch 120 | loss 0.1401 | val HR@10 0.1316
+    epoch 130 | loss 0.1402 | val HR@10 0.1324
+    epoch 140 | loss 0.1400 | val HR@10 0.1313
+    epoch 150 | loss 0.1399 | val HR@10 0.1318
+  -> HR@10 0.1273 NDCG@10 0.0672 AD@10 1093 (88.73 phút)
+
+
+==============================================================================
+KẾT QUẢ — FPMC trên ml-10m.txt
+==============================================================================
+HR@5       0.0805 ± 0.0006
+HR@10      0.1276 ± 0.0014
+NDCG@5     0.0516 ± 0.0007
+NDCG@10    0.0667 ± 0.0010
+AD@5       835.7 ± 4.5
+AD@10      1095.7 ± 15.2
+
+Đã lưu -> A_fpmc_ml10m.json
+=== A: transformer on ml10m ===
+mô hình  : transformer   ablation: none
+thiết bị : cuda   |  dữ liệu: ml-10m.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py:337: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, layers)
+C:\Python314\Lib\site-packages\torch\autograd\graph.py:979: UserWarning: Memory Efficient attention defaults to a non-deterministic algorithm. To explicitly enable determinism call torch.use_deterministic_algorithms(True, warn_only=False). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\transformers\cuda\attention_backward.cu:835.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass      
+    epoch  10 | loss 5.4793 | val HR@10 0.1325
+    epoch  20 | loss 5.2740 | val HR@10 0.1485
+    epoch  30 | loss 5.2039 | val HR@10 0.1543
+    epoch  40 | loss 5.1671 | val HR@10 0.1552
+    epoch  50 | loss 5.1423 | val HR@10 0.1569
+    epoch  60 | loss 5.1264 | val HR@10 0.1577
+    epoch  70 | loss 5.1144 | val HR@10 0.1588
+    epoch  80 | loss 5.1039 | val HR@10 0.1596
+    epoch  90 | loss 5.0963 | val HR@10 0.1587
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PS D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final> cd "D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final"
+>> Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+>> .\run_alignment.ps1
+=== A: mf on ml1m ===
+mô hình  : mf   ablation: none
+thiết bị : cpu   |  dữ liệu: ml-1m.txt
+seed     : [42, 2024, 3407]
+
+(chạy tiếp: bỏ qua lượt đã có)
+
+[base] seed 42 — đã có, bỏ qua
+[base] seed 2024 — đã có, bỏ qua
+[base] seed 3407 — đã có, bỏ qua
+
+==============================================================================
+KẾT QUẢ — MF trên ml-1m.txt
+==============================================================================
+HR@5       0.0333 ± 0.0016
+HR@10      0.0570 ± 0.0030
+NDCG@5     0.0213 ± 0.0008
+NDCG@10    0.0289 ± 0.0015
+AD@5       666.3 ± 20.5
+AD@10      873.0 ± 11.1
+
+Đã lưu -> A_mf_ml1m.json
+=== A: fpmc on ml1m ===
+mô hình  : fpmc   ablation: none
+thiết bị : cpu   |  dữ liệu: ml-1m.txt
+seed     : [42, 2024, 3407]
+
+(chạy tiếp: bỏ qua lượt đã có)
+
+[base] seed 42 — đã có, bỏ qua
+[base] seed 2024 — đã có, bỏ qua
+[base] seed 3407 — đã có, bỏ qua
+
+==============================================================================
+KẾT QUẢ — FPMC trên ml-1m.txt
+==============================================================================
+HR@5       0.1224 ± 0.0023
+HR@10      0.1894 ± 0.0027
+NDCG@5     0.0792 ± 0.0011
+NDCG@10    0.1008 ± 0.0012
+AD@5       1096.0 ± 15.1
+AD@10      1397.3 ± 5.9
+
+Đã lưu -> A_fpmc_ml1m.json
+=== A: transformer on ml1m ===
+mô hình  : transformer   ablation: none
+thiết bị : cpu   |  dữ liệu: ml-1m.txt
+seed     : [42, 2024, 3407]
+
+(chạy tiếp: bỏ qua lượt đã có)
+
+[base] seed 42 — đã có, bỏ qua
+[base] seed 2024 — đã có, bỏ qua
+[base] seed 3407 — đã có, bỏ qua
+
+==============================================================================
+KẾT QUẢ — TRANSFORMER trên ml-1m.txt
+==============================================================================
+HR@5       0.1083 ± 0.0022
+HR@10      0.1605 ± 0.0032
+NDCG@5     0.0720 ± 0.0017
+NDCG@10    0.0888 ± 0.0020
+AD@5       1731.7 ± 47.4
+AD@10      2005.7 ± 36.6
+
+Đã lưu -> A_transformer_ml1m.json
+=== A: mf on ml10m ===
+mô hình  : mf   ablation: none
+thiết bị : cuda   |  dữ liệu: ml-10m.txt
+seed     : [42, 2024, 3407]
+
+(chạy tiếp: bỏ qua lượt đã có)
+
+[base] seed 42 — đã có, bỏ qua
+[base] seed 2024 — đã có, bỏ qua
+[base] seed 3407 — đã có, bỏ qua
+
+==============================================================================
+KẾT QUẢ — MF trên ml-10m.txt
+==============================================================================
+HR@5       0.0357 ± 0.0002
+HR@10      0.0575 ± 0.0005
+NDCG@5     0.0232 ± 0.0004
+NDCG@10    0.0302 ± 0.0006
+AD@5       262.7 ± 1.2
+AD@10      371.3 ± 8.0
+
+Đã lưu -> A_mf_ml10m.json
+=== A: fpmc on ml10m ===
+mô hình  : fpmc   ablation: none
+thiết bị : cuda   |  dữ liệu: ml-10m.txt
+seed     : [42, 2024, 3407]
+
+(chạy tiếp: bỏ qua lượt đã có)
+
+[base] seed 42 — đã có, bỏ qua
+[base] seed 2024 — đã có, bỏ qua
+[base] seed 3407 — đã có, bỏ qua
+
+==============================================================================
+KẾT QUẢ — FPMC trên ml-10m.txt
+==============================================================================
+HR@5       0.0805 ± 0.0006
+HR@10      0.1276 ± 0.0014
+NDCG@5     0.0516 ± 0.0007
+NDCG@10    0.0667 ± 0.0010
+AD@5       835.7 ± 4.5
+AD@10      1095.7 ± 15.2
+
+Đã lưu -> A_fpmc_ml10m.json
+=== A: transformer on ml10m ===
+mô hình  : transformer   ablation: none
+thiết bị : cuda   |  dữ liệu: ml-10m.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py:337: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, layers)
+C:\Python314\Lib\site-packages\torch\autograd\graph.py:979: UserWarning: Memory Efficient attention defaults to a non-deterministic algorithm. To explicitly enable determinism call torch.use_deterministic_algorithms(True, warn_only=False). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\transformers\cuda\attention_backward.cu:835.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass      
+    epoch  10 | loss 5.4793 | val HR@10 0.1325
+    epoch  20 | loss 5.2740 | val HR@10 0.1485
+    epoch  30 | loss 5.2039 | val HR@10 0.1543
+    epoch  40 | loss 5.1671 | val HR@10 0.1552
+    epoch  50 | loss 5.1423 | val HR@10 0.1569
+    epoch  60 | loss 5.1264 | val HR@10 0.1577
+    epoch  70 | loss 5.1144 | val HR@10 0.1588
+    epoch  80 | loss 5.1039 | val HR@10 0.1596
+    epoch  90 | loss 5.0963 | val HR@10 0.1587
+    epoch 100 | loss 5.0897 | val HR@10 0.1596
+    epoch 110 | loss 5.0837 | val HR@10 0.1594
+    epoch 120 | loss 5.0792 | val HR@10 0.1591
+    epoch 130 | loss 5.0739 | val HR@10 0.1613
+    epoch 140 | loss 5.0698 | val HR@10 0.1598
+    epoch 150 | loss 5.0667 | val HR@10 0.1601
+  -> HR@10 0.1495 NDCG@10 0.0811 AD@10 5535 (76.54 phút)
+
+[base] seed 2024
+    epoch  10 | loss 5.4864 | val HR@10 0.1312
+    epoch  20 | loss 5.2739 | val HR@10 0.1497
+    epoch  30 | loss 5.2043 | val HR@10 0.1534
+    epoch  40 | loss 5.1660 | val HR@10 0.1556
+    epoch  50 | loss 5.1427 | val HR@10 0.1570
+    epoch  60 | loss 5.1262 | val HR@10 0.1578
+    epoch  70 | loss 5.1140 | val HR@10 0.1591
+    epoch  80 | loss 5.1038 | val HR@10 0.1595
+    epoch  90 | loss 5.0945 | val HR@10 0.1592
+    epoch 100 | loss 5.0877 | val HR@10 0.1608
+    epoch 110 | loss 5.0827 | val HR@10 0.1600
+    epoch 120 | loss 5.0774 | val HR@10 0.1604
+    epoch 130 | loss 5.0728 | val HR@10 0.1607
+    epoch 140 | loss 5.0685 | val HR@10 0.1610
+    epoch 150 | loss 5.0653 | val HR@10 0.1612
+  -> HR@10 0.1497 NDCG@10 0.0816 AD@10 5842 (60.97 phút)
+
+[base] seed 3407
+    epoch  10 | loss 5.4780 | val HR@10 0.1337
+    epoch  20 | loss 5.2690 | val HR@10 0.1490
+    epoch  30 | loss 5.2007 | val HR@10 0.1539
+    epoch  40 | loss 5.1648 | val HR@10 0.1556
+    epoch  50 | loss 5.1413 | val HR@10 0.1572
+    epoch  60 | loss 5.1251 | val HR@10 0.1582
+    epoch  70 | loss 5.1125 | val HR@10 0.1590
+    epoch  80 | loss 5.1033 | val HR@10 0.1587
+    epoch  90 | loss 5.0947 | val HR@10 0.1597
+    epoch 100 | loss 5.0873 | val HR@10 0.1586
+    epoch 110 | loss 5.0820 | val HR@10 0.1613
+    epoch 120 | loss 5.0767 | val HR@10 0.1615
+    epoch 130 | loss 5.0714 | val HR@10 0.1609
+    epoch 140 | loss 5.0673 | val HR@10 0.1612
+    epoch 150 | loss 5.0640 | val HR@10 0.1603
+  -> HR@10 0.1496 NDCG@10 0.0816 AD@10 5548 (61.53 phút)
+
+
+==============================================================================
+KẾT QUẢ — TRANSFORMER trên ml-10m.txt
+==============================================================================
+HR@5       0.0985 ± 0.0007
+HR@10      0.1496 ± 0.0001
+NDCG@5     0.0649 ± 0.0005
+NDCG@10    0.0815 ± 0.0003
+AD@5       5000.7 ± 173.0
+AD@10      5641.7 ± 173.6
+
+Đã lưu -> A_transformer_ml10m.json
+=== A: mf on amazon ===
+mô hình  : mf   ablation: none
+thiết bị : cuda   |  dữ liệu: AmazonBook.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+    epoch  10 | loss 0.4179 | val HR@10 0.0395
+    epoch  20 | loss 0.3914 | val HR@10 0.0376
+    epoch  30 | loss 0.3840 | val HR@10 0.0309
+    epoch  40 | loss 0.3806 | val HR@10 0.0243
+    epoch  50 | loss 0.3793 | val HR@10 0.0215
+    epoch  60 | loss 0.3787 | val HR@10 0.0205
+    epoch  70 | loss 0.3783 | val HR@10 0.0198
+    dừng sớm ở epoch 70
+  -> HR@10 0.0351 NDCG@10 0.0165 AD@10 329 (3.65 phút)
+
+[base] seed 2024
+    epoch  10 | loss 0.4168 | val HR@10 0.0383
+    epoch  20 | loss 0.3913 | val HR@10 0.0369
+    epoch  30 | loss 0.3835 | val HR@10 0.0307
+    epoch  40 | loss 0.3805 | val HR@10 0.0245
+    epoch  50 | loss 0.3792 | val HR@10 0.0214
+    epoch  60 | loss 0.3787 | val HR@10 0.0210
+    epoch  70 | loss 0.3785 | val HR@10 0.0197
+    dừng sớm ở epoch 70
+  -> HR@10 0.0337 NDCG@10 0.0158 AD@10 353 (3.55 phút)
+
+[base] seed 3407
+    epoch  10 | loss 0.4170 | val HR@10 0.0404
+    epoch  20 | loss 0.3904 | val HR@10 0.0385
+    epoch  30 | loss 0.3832 | val HR@10 0.0306
+    epoch  40 | loss 0.3804 | val HR@10 0.0246
+    epoch  50 | loss 0.3790 | val HR@10 0.0214
+    epoch  60 | loss 0.3792 | val HR@10 0.0205
+    epoch  70 | loss 0.3785 | val HR@10 0.0199
+    dừng sớm ở epoch 70
+  -> HR@10 0.0348 NDCG@10 0.0163 AD@10 345 (3.56 phút)
+
+
+==============================================================================
+KẾT QUẢ — MF trên AmazonBook.txt
+==============================================================================
+HR@5       0.0181 ± 0.0006
+HR@10      0.0345 ± 0.0007
+NDCG@5     0.0110 ± 0.0003
+NDCG@10    0.0162 ± 0.0003
+AD@5       215.0 ± 1.0
+AD@10      342.3 ± 12.2
+
+Đã lưu -> A_mf_amazon.json
+=== A: fpmc on amazon ===
+mô hình  : fpmc   ablation: none
+thiết bị : cuda   |  dữ liệu: AmazonBook.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+    epoch  10 | loss 0.2649 | val HR@10 0.0605
+    epoch  20 | loss 0.2376 | val HR@10 0.0609
+    epoch  30 | loss 0.2310 | val HR@10 0.0616
+    epoch  40 | loss 0.2277 | val HR@10 0.0617
+    epoch  50 | loss 0.2256 | val HR@10 0.0611
+    epoch  60 | loss 0.2242 | val HR@10 0.0607
+    epoch  70 | loss 0.2244 | val HR@10 0.0599
+    epoch  80 | loss 0.2242 | val HR@10 0.0607
+    epoch  90 | loss 0.2234 | val HR@10 0.0606
+    epoch 100 | loss 0.2237 | val HR@10 0.0605
+    dừng sớm ở epoch 100
+  -> HR@10 0.0572 NDCG@10 0.0290 AD@10 947 (4.81 phút)
+
+[base] seed 2024
+    epoch  10 | loss 0.2657 | val HR@10 0.0600
+    epoch  20 | loss 0.2382 | val HR@10 0.0622
+    epoch  30 | loss 0.2306 | val HR@10 0.0611
+    epoch  40 | loss 0.2281 | val HR@10 0.0615
+    epoch  50 | loss 0.2260 | val HR@10 0.0603
+    epoch  60 | loss 0.2249 | val HR@10 0.0603
+    epoch  70 | loss 0.2251 | val HR@10 0.0599
+    epoch  80 | loss 0.2240 | val HR@10 0.0601
+    dừng sớm ở epoch 80
+  -> HR@10 0.0569 NDCG@10 0.0286 AD@10 1016 (3.88 phút)
+
+[base] seed 3407
+    epoch  10 | loss 0.2660 | val HR@10 0.0602
+    epoch  20 | loss 0.2387 | val HR@10 0.0621
+    epoch  30 | loss 0.2304 | val HR@10 0.0619
+    epoch  40 | loss 0.2279 | val HR@10 0.0614
+    epoch  50 | loss 0.2259 | val HR@10 0.0607
+    epoch  60 | loss 0.2249 | val HR@10 0.0607
+    epoch  70 | loss 0.2241 | val HR@10 0.0613
+    epoch  80 | loss 0.2237 | val HR@10 0.0588
+    dừng sớm ở epoch 80
+  -> HR@10 0.0570 NDCG@10 0.0285 AD@10 981 (3.87 phút)
+
+
+==============================================================================
+KẾT QUẢ — FPMC trên AmazonBook.txt
+==============================================================================
+HR@5       0.0341 ± 0.0008
+HR@10      0.0570 ± 0.0002
+NDCG@5     0.0213 ± 0.0005
+NDCG@10    0.0287 ± 0.0003
+AD@5       646.0 ± 32.9
+AD@10      981.3 ± 34.5
+
+Đã lưu -> A_fpmc_amazon.json
+=== A: transformer on amazon ===
+mô hình  : transformer   ablation: none
+thiết bị : cuda   |  dữ liệu: AmazonBook.txt
+seed     : [42, 2024, 3407]
+
+[base] seed 42
+D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final\sirm_experiments.py:337: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, layers)
+C:\Python314\Lib\site-packages\torch\autograd\graph.py:979: UserWarning: Memory Efficient attention defaults to a non-deterministic algorithm. To explicitly enable determinism call torch.use_deterministic_algorithms(True, warn_only=False). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\transformers\cuda\attention_backward.cu:835.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass      
+    epoch  10 | loss 7.1601 | val HR@10 0.0018
+    epoch  20 | loss 6.2560 | val HR@10 0.0021
+    epoch  30 | loss 5.7362 | val HR@10 0.0024
+    epoch  40 | loss 5.4146 | val HR@10 0.0025
+    epoch  50 | loss 5.2024 | val HR@10 0.0024
+    epoch  60 | loss 5.0581 | val HR@10 0.0023
+    epoch  70 | loss 4.9524 | val HR@10 0.0023
+    epoch  80 | loss 4.8573 | val HR@10 0.0022
+    epoch  90 | loss 4.7790 | val HR@10 0.0022
+    epoch 100 | loss 4.7072 | val HR@10 0.0022
+    dừng sớm ở epoch 100
+  -> HR@10 0.0025 NDCG@10 0.0012 AD@10 3192 (77.01 phút)
+
+[base] seed 2024
+    epoch  10 | loss 7.1717 | val HR@10 0.0020
+    epoch  20 | loss 6.2901 | val HR@10 0.0023
+    epoch  30 | loss 5.7516 | val HR@10 0.0022
+    epoch  40 | loss 5.4270 | val HR@10 0.0021
+    epoch  50 | loss 5.2227 | val HR@10 0.0025
+    epoch  60 | loss 5.0778 | val HR@10 0.0022
+    epoch  70 | loss 4.9612 | val HR@10 0.0023
+    epoch  80 | loss 4.8733 | val HR@10 0.0023
+    epoch  90 | loss 4.7883 | val HR@10 0.0022
+    epoch 100 | loss 4.7198 | val HR@10 0.0023
+    epoch 110 | loss 4.6548 | val HR@10 0.0022
+    dừng sớm ở epoch 110
+  -> HR@10 0.0024 NDCG@10 0.0011 AD@10 3448 (87.72 phút)
+
+[base] seed 3407
+    epoch  10 | loss 7.1571 | val HR@10 0.0020
+    epoch  20 | loss 6.2508 | val HR@10 0.0022
+    epoch  30 | loss 5.7207 | val HR@10 0.0023
+    epoch  40 | loss 5.4095 | val HR@10 0.0023
+    epoch  50 | loss 5.2082 | val HR@10 0.0024
+    epoch  60 | loss 5.0598 | val HR@10 0.0024
+    epoch  70 | loss 4.9482 | val HR@10 0.0024
+    epoch  80 | loss 4.8582 | val HR@10 0.0022
+    epoch  90 | loss 4.7759 | val HR@10 0.0022
+    epoch 100 | loss 4.6979 | val HR@10 0.0023
+    epoch 110 | loss 4.6361 | val HR@10 0.0024
+    dừng sớm ở epoch 110
+  -> HR@10 0.0025 NDCG@10 0.0012 AD@10 3385 (84.35 phút)
+
+
+==============================================================================
+KẾT QUẢ — TRANSFORMER trên AmazonBook.txt
+==============================================================================
+HR@5       0.0011 ± 0.0001
+HR@10      0.0025 ± 0.0001
+NDCG@5     0.0007 ± 0.0001
+NDCG@10    0.0011 ± 0.0001
+AD@5       2249.3 ± 81.0
+AD@10      3341.7 ± 133.4
+
+Đã lưu -> A_transformer_amazon.json
+
+DONE. Send these 9 files: A_*.json
+PS D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\Final> 

@@ -1,0 +1,324 @@
+PS D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot> python sirm_experiments.py --model transformer --device cuda --batch 32 --seeds 42 2024 3407 8888 12345 --out "paper_ml1m_results/res_transformer_ml1m.json"
+mô hình  : transformer   ablation: none
+thiết bị : cuda   |  dữ liệu: ml-1m.txt
+seed     : [42, 2024, 3407, 8888, 12345]
+
+[base] seed 42
+D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\sirm_experiments.py:232: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, layers)
+C:\Python314\Lib\site-packages\torch\autograd\graph.py:979: UserWarning: Memory Efficient attention defaults to a non-deterministic algorithm. To explicitly enable determinism call torch.use_deterministic_algorithms(True, warn_only=False). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\transformers\cuda\attention_backward.cu:835.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+    epoch   5 | loss 7.3209 | val HR@10 0.0194
+    epoch  10 | loss 6.6551 | val HR@10 0.0280
+    epoch  15 | loss 6.2427 | val HR@10 0.0368
+    epoch  20 | loss 6.0010 | val HR@10 0.0425
+    epoch  25 | loss 5.8452 | val HR@10 0.0502
+    epoch  30 | loss 5.7256 | val HR@10 0.0530
+    epoch  35 | loss 5.6401 | val HR@10 0.0578
+    epoch  40 | loss 5.5685 | val HR@10 0.0593
+    epoch  45 | loss 5.5126 | val HR@10 0.0619
+    epoch  50 | loss 5.4683 | val HR@10 0.0636
+    epoch  55 | loss 5.4305 | val HR@10 0.0659
+    epoch  60 | loss 5.4004 | val HR@10 0.0647
+    epoch  65 | loss 5.3745 | val HR@10 0.0656
+    epoch  70 | loss 5.3524 | val HR@10 0.0682
+    epoch  75 | loss 5.3298 | val HR@10 0.0682
+    epoch  80 | loss 5.3136 | val HR@10 0.0659
+    epoch  85 | loss 5.2962 | val HR@10 0.0661
+    epoch  90 | loss 5.2786 | val HR@10 0.0699
+    epoch  95 | loss 5.2671 | val HR@10 0.0664
+    epoch 100 | loss 5.2514 | val HR@10 0.0675
+    epoch 105 | loss 5.2386 | val HR@10 0.0669
+    epoch 110 | loss 5.2270 | val HR@10 0.0685
+    epoch 115 | loss 5.2168 | val HR@10 0.0704
+    epoch 120 | loss 5.2082 | val HR@10 0.0677
+    epoch 125 | loss 5.1999 | val HR@10 0.0679
+    epoch 130 | loss 5.1925 | val HR@10 0.0684
+    epoch 135 | loss 5.1858 | val HR@10 0.0699
+    epoch 140 | loss 5.1774 | val HR@10 0.0695
+    epoch 145 | loss 5.1723 | val HR@10 0.0690
+    dừng sớm ở epoch 145
+  -> HR@10 0.0601 NDCG@10 0.0331 AD@10 1831 (15.72 phút)
+
+[base] seed 2024
+    epoch   5 | loss 7.3425 | val HR@10 0.0190
+    epoch  10 | loss 6.6974 | val HR@10 0.0281
+    epoch  15 | loss 6.2565 | val HR@10 0.0374
+    epoch  20 | loss 6.0054 | val HR@10 0.0432
+    epoch  25 | loss 5.8436 | val HR@10 0.0517
+    epoch  30 | loss 5.7250 | val HR@10 0.0517
+    epoch  35 | loss 5.6311 | val HR@10 0.0571
+    epoch  40 | loss 5.5583 | val HR@10 0.0608
+    epoch  45 | loss 5.5001 | val HR@10 0.0616
+    epoch  50 | loss 5.4574 | val HR@10 0.0644
+    epoch  55 | loss 5.4222 | val HR@10 0.0657
+    epoch  60 | loss 5.3944 | val HR@10 0.0659
+    epoch  65 | loss 5.3677 | val HR@10 0.0661
+    epoch  70 | loss 5.3441 | val HR@10 0.0656
+    epoch  75 | loss 5.3280 | val HR@10 0.0667
+    epoch  80 | loss 5.3095 | val HR@10 0.0682
+    epoch  85 | loss 5.2923 | val HR@10 0.0694
+    epoch  90 | loss 5.2746 | val HR@10 0.0680
+    epoch  95 | loss 5.2634 | val HR@10 0.0672
+    epoch 100 | loss 5.2505 | val HR@10 0.0684
+    epoch 105 | loss 5.2363 | val HR@10 0.0685
+    epoch 110 | loss 5.2263 | val HR@10 0.0674
+    epoch 115 | loss 5.2173 | val HR@10 0.0684
+    dừng sớm ở epoch 115
+  -> HR@10 0.0623 NDCG@10 0.0335 AD@10 1802 (13.69 phút)
+
+[base] seed 3407
+    epoch   5 | loss 7.3422 | val HR@10 0.0177
+    epoch  10 | loss 6.6825 | val HR@10 0.0272
+    epoch  15 | loss 6.2403 | val HR@10 0.0343
+    epoch  20 | loss 5.9793 | val HR@10 0.0437
+    epoch  25 | loss 5.8222 | val HR@10 0.0503
+    epoch  30 | loss 5.7065 | val HR@10 0.0545
+    epoch  35 | loss 5.6221 | val HR@10 0.0581
+    epoch  40 | loss 5.5500 | val HR@10 0.0593
+    epoch  45 | loss 5.4929 | val HR@10 0.0621
+    epoch  50 | loss 5.4499 | val HR@10 0.0616
+    epoch  55 | loss 5.4189 | val HR@10 0.0599
+    epoch  60 | loss 5.3905 | val HR@10 0.0642
+    epoch  65 | loss 5.3656 | val HR@10 0.0659
+    epoch  70 | loss 5.3416 | val HR@10 0.0656
+    epoch  75 | loss 5.3187 | val HR@10 0.0664
+    epoch  80 | loss 5.3058 | val HR@10 0.0672
+    epoch  85 | loss 5.2874 | val HR@10 0.0671
+    epoch  90 | loss 5.2727 | val HR@10 0.0689
+    epoch  95 | loss 5.2593 | val HR@10 0.0667
+    epoch 100 | loss 5.2442 | val HR@10 0.0682
+    epoch 105 | loss 5.2353 | val HR@10 0.0672
+    epoch 110 | loss 5.2234 | val HR@10 0.0661
+    epoch 115 | loss 5.2128 | val HR@10 0.0679
+    epoch 120 | loss 5.2071 | val HR@10 0.0662
+    dừng sớm ở epoch 120
+  -> HR@10 0.0598 NDCG@10 0.0328 AD@10 1748 (14.89 phút)
+
+[base] seed 8888
+    epoch   5 | loss 7.3293 | val HR@10 0.0185
+    epoch  10 | loss 6.6606 | val HR@10 0.0280
+    epoch  15 | loss 6.2479 | val HR@10 0.0376
+    epoch  20 | loss 5.9970 | val HR@10 0.0434
+    epoch  25 | loss 5.8368 | val HR@10 0.0474
+    epoch  30 | loss 5.7195 | val HR@10 0.0556
+    epoch  35 | loss 5.6275 | val HR@10 0.0586
+    epoch  40 | loss 5.5559 | val HR@10 0.0596
+    epoch  45 | loss 5.4992 | val HR@10 0.0604
+    epoch  50 | loss 5.4542 | val HR@10 0.0616
+    epoch  55 | loss 5.4172 | val HR@10 0.0629
+    epoch  60 | loss 5.3889 | val HR@10 0.0637
+    epoch  65 | loss 5.3649 | val HR@10 0.0646
+    epoch  70 | loss 5.3418 | val HR@10 0.0661
+    epoch  75 | loss 5.3206 | val HR@10 0.0651
+    epoch  80 | loss 5.3048 | val HR@10 0.0651
+    epoch  85 | loss 5.2850 | val HR@10 0.0654
+    epoch  90 | loss 5.2743 | val HR@10 0.0661
+    epoch  95 | loss 5.2580 | val HR@10 0.0680
+    epoch 100 | loss 5.2449 | val HR@10 0.0680
+    epoch 105 | loss 5.2344 | val HR@10 0.0689
+    epoch 110 | loss 5.2227 | val HR@10 0.0672
+    epoch 115 | loss 5.2124 | val HR@10 0.0680
+    epoch 120 | loss 5.2046 | val HR@10 0.0697
+    epoch 125 | loss 5.1920 | val HR@10 0.0680
+    epoch 130 | loss 5.1858 | val HR@10 0.0680
+    epoch 135 | loss 5.1809 | val HR@10 0.0712
+    epoch 140 | loss 5.1733 | val HR@10 0.0677
+    epoch 145 | loss 5.1657 | val HR@10 0.0685
+    epoch 150 | loss 5.1598 | val HR@10 0.0719
+  -> HR@10 0.0626 NDCG@10 0.0346 AD@10 1972 (16.84 phút)
+
+[base] seed 12345
+    epoch   5 | loss 7.3301 | val HR@10 0.0200
+    epoch  10 | loss 6.6687 | val HR@10 0.0278
+    epoch  15 | loss 6.2367 | val HR@10 0.0402
+    epoch  20 | loss 5.9925 | val HR@10 0.0414
+    epoch  25 | loss 5.8412 | val HR@10 0.0507
+    epoch  30 | loss 5.7284 | val HR@10 0.0543
+    epoch  35 | loss 5.6416 | val HR@10 0.0598
+    epoch  40 | loss 5.5647 | val HR@10 0.0626
+    epoch  45 | loss 5.5134 | val HR@10 0.0616
+    epoch  50 | loss 5.4656 | val HR@10 0.0664
+    epoch  55 | loss 5.4288 | val HR@10 0.0646
+    epoch  60 | loss 5.4020 | val HR@10 0.0651
+    epoch  65 | loss 5.3760 | val HR@10 0.0627
+    epoch  70 | loss 5.3495 | val HR@10 0.0649
+    epoch  75 | loss 5.3270 | val HR@10 0.0659
+    epoch  80 | loss 5.3108 | val HR@10 0.0659
+    dừng sớm ở epoch 80
+  -> HR@10 0.0565 NDCG@10 0.0310 AD@10 1596 (8.55 phút)
+
+[sirm] seed 42
+D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\sirm_experiments.py:232: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, layers)
+    epoch   5 | loss 6.9202 | val HR@10 0.0265
+    epoch  10 | loss 6.3535 | val HR@10 0.0392
+    epoch  15 | loss 6.0673 | val HR@10 0.0396
+    epoch  20 | loss 5.8894 | val HR@10 0.0455
+    epoch  25 | loss 5.7626 | val HR@10 0.0517
+    epoch  30 | loss 5.6669 | val HR@10 0.0570
+    epoch  35 | loss 5.5885 | val HR@10 0.0593
+    epoch  40 | loss 5.5259 | val HR@10 0.0608
+    epoch  45 | loss 5.4765 | val HR@10 0.0621
+    epoch  50 | loss 5.4409 | val HR@10 0.0659
+    epoch  55 | loss 5.4066 | val HR@10 0.0657
+    epoch  60 | loss 5.3777 | val HR@10 0.0685
+    epoch  65 | loss 5.3560 | val HR@10 0.0695
+    epoch  70 | loss 5.3337 | val HR@10 0.0674
+    epoch  75 | loss 5.3165 | val HR@10 0.0680
+    epoch  80 | loss 5.2966 | val HR@10 0.0664
+    epoch  85 | loss 5.2845 | val HR@10 0.0684
+    epoch  90 | loss 5.2698 | val HR@10 0.0672
+    epoch  95 | loss 5.2515 | val HR@10 0.0651
+    dừng sớm ở epoch 95
+  -> HR@10 0.0591 NDCG@10 0.0320 AD@10 1713 (10.51 phút)
+
+[sirm] seed 2024
+D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\sirm_experiments.py:232: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, layers)
+    epoch   5 | loss 6.9823 | val HR@10 0.0263
+    epoch  10 | loss 6.4442 | val HR@10 0.0339
+    epoch  15 | loss 6.1194 | val HR@10 0.0422
+    epoch  20 | loss 5.9148 | val HR@10 0.0444
+    epoch  25 | loss 5.7879 | val HR@10 0.0503
+    epoch  30 | loss 5.6886 | val HR@10 0.0561
+    epoch  35 | loss 5.6117 | val HR@10 0.0560
+    epoch  40 | loss 5.5448 | val HR@10 0.0624
+    epoch  45 | loss 5.4924 | val HR@10 0.0619
+    epoch  50 | loss 5.4531 | val HR@10 0.0642
+    epoch  55 | loss 5.4190 | val HR@10 0.0634
+    epoch  60 | loss 5.3912 | val HR@10 0.0631
+    epoch  65 | loss 5.3658 | val HR@10 0.0652
+    epoch  70 | loss 5.3438 | val HR@10 0.0672
+    epoch  75 | loss 5.3233 | val HR@10 0.0652
+    epoch  80 | loss 5.3053 | val HR@10 0.0646
+    epoch  85 | loss 5.2877 | val HR@10 0.0651
+    epoch  90 | loss 5.2720 | val HR@10 0.0651
+    epoch  95 | loss 5.2603 | val HR@10 0.0671
+    epoch 100 | loss 5.2472 | val HR@10 0.0652
+    dừng sớm ở epoch 100
+  -> HR@10 0.0609 NDCG@10 0.0323 AD@10 1741 (11.05 phút)
+
+[sirm] seed 3407
+D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\sirm_experiments.py:232: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, layers)
+    epoch   5 | loss 6.9184 | val HR@10 0.0255
+    epoch  10 | loss 6.3631 | val HR@10 0.0344
+    epoch  15 | loss 6.0868 | val HR@10 0.0444
+    epoch  20 | loss 5.9125 | val HR@10 0.0493
+    epoch  25 | loss 5.7862 | val HR@10 0.0538
+    epoch  30 | loss 5.6860 | val HR@10 0.0558
+    epoch  35 | loss 5.6095 | val HR@10 0.0611
+    epoch  40 | loss 5.5442 | val HR@10 0.0609
+    epoch  45 | loss 5.4976 | val HR@10 0.0619
+    epoch  50 | loss 5.4559 | val HR@10 0.0652
+    epoch  55 | loss 5.4210 | val HR@10 0.0634
+    epoch  60 | loss 5.3924 | val HR@10 0.0639
+    epoch  65 | loss 5.3696 | val HR@10 0.0639
+    epoch  70 | loss 5.3464 | val HR@10 0.0672
+    epoch  75 | loss 5.3281 | val HR@10 0.0652
+    epoch  80 | loss 5.3105 | val HR@10 0.0689
+    epoch  85 | loss 5.2958 | val HR@10 0.0661
+    epoch  90 | loss 5.2819 | val HR@10 0.0685
+    epoch  95 | loss 5.2652 | val HR@10 0.0674
+    epoch 100 | loss 5.2552 | val HR@10 0.0669
+    epoch 105 | loss 5.2428 | val HR@10 0.0666
+    epoch 110 | loss 5.2289 | val HR@10 0.0675
+    dừng sớm ở epoch 110
+  -> HR@10 0.0571 NDCG@10 0.0315 AD@10 1768 (12.13 phút)
+
+[sirm] seed 8888
+D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\sirm_experiments.py:232: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, layers)
+    epoch   5 | loss 6.9794 | val HR@10 0.0243
+    epoch  10 | loss 6.3850 | val HR@10 0.0364
+    epoch  15 | loss 6.0882 | val HR@10 0.0444
+    epoch  20 | loss 5.9058 | val HR@10 0.0503
+    epoch  25 | loss 5.7744 | val HR@10 0.0558
+    epoch  30 | loss 5.6762 | val HR@10 0.0583
+    epoch  35 | loss 5.5973 | val HR@10 0.0609
+    epoch  40 | loss 5.5317 | val HR@10 0.0642
+    epoch  45 | loss 5.4815 | val HR@10 0.0649
+    epoch  50 | loss 5.4388 | val HR@10 0.0641
+    epoch  55 | loss 5.4055 | val HR@10 0.0661
+    epoch  60 | loss 5.3760 | val HR@10 0.0667
+    epoch  65 | loss 5.3552 | val HR@10 0.0644
+    epoch  70 | loss 5.3323 | val HR@10 0.0666
+    epoch  75 | loss 5.3115 | val HR@10 0.0661
+    epoch  80 | loss 5.2941 | val HR@10 0.0680
+    epoch  85 | loss 5.2770 | val HR@10 0.0694
+    epoch  90 | loss 5.2643 | val HR@10 0.0679
+    epoch  95 | loss 5.2511 | val HR@10 0.0677
+    epoch 100 | loss 5.2380 | val HR@10 0.0685
+    epoch 105 | loss 5.2256 | val HR@10 0.0700
+    epoch 110 | loss 5.2127 | val HR@10 0.0695
+    epoch 115 | loss 5.2047 | val HR@10 0.0694
+    epoch 120 | loss 5.1943 | val HR@10 0.0704
+    epoch 125 | loss 5.1891 | val HR@10 0.0685
+    epoch 130 | loss 5.1796 | val HR@10 0.0709
+    epoch 135 | loss 5.1721 | val HR@10 0.0699
+    epoch 140 | loss 5.1680 | val HR@10 0.0722
+    epoch 145 | loss 5.1601 | val HR@10 0.0717
+    epoch 150 | loss 5.1534 | val HR@10 0.0705
+  -> HR@10 0.0661 NDCG@10 0.0362 AD@10 1945 (16.5 phút)
+
+[sirm] seed 12345
+D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot\sirm_experiments.py:232: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(layer, layers)
+    epoch   5 | loss 6.9227 | val HR@10 0.0243
+    epoch  10 | loss 6.3944 | val HR@10 0.0368
+    epoch  15 | loss 6.0691 | val HR@10 0.0460
+    epoch  20 | loss 5.8920 | val HR@10 0.0505
+    epoch  25 | loss 5.7560 | val HR@10 0.0548
+    epoch  30 | loss 5.6692 | val HR@10 0.0561
+    epoch  35 | loss 5.5883 | val HR@10 0.0611
+    epoch  40 | loss 5.5282 | val HR@10 0.0621
+    epoch  45 | loss 5.4764 | val HR@10 0.0636
+    epoch  50 | loss 5.4400 | val HR@10 0.0651
+    epoch  55 | loss 5.4032 | val HR@10 0.0649
+    epoch  60 | loss 5.3749 | val HR@10 0.0656
+    epoch  65 | loss 5.3543 | val HR@10 0.0661
+    epoch  70 | loss 5.3311 | val HR@10 0.0679
+    epoch  75 | loss 5.3098 | val HR@10 0.0672
+    epoch  80 | loss 5.2954 | val HR@10 0.0682
+    epoch  85 | loss 5.2776 | val HR@10 0.0664
+    epoch  90 | loss 5.2598 | val HR@10 0.0684
+    epoch  95 | loss 5.2500 | val HR@10 0.0682
+    epoch 100 | loss 5.2373 | val HR@10 0.0690
+    epoch 105 | loss 5.2251 | val HR@10 0.0692
+    epoch 110 | loss 5.2129 | val HR@10 0.0689
+    epoch 115 | loss 5.2073 | val HR@10 0.0695
+    epoch 120 | loss 5.1973 | val HR@10 0.0697
+    epoch 125 | loss 5.1853 | val HR@10 0.0707
+    epoch 130 | loss 5.1770 | val HR@10 0.0715
+    epoch 135 | loss 5.1741 | val HR@10 0.0720
+    epoch 140 | loss 5.1657 | val HR@10 0.0705
+    epoch 145 | loss 5.1597 | val HR@10 0.0684
+    epoch 150 | loss 5.1532 | val HR@10 0.0714
+  -> HR@10 0.0642 NDCG@10 0.0342 AD@10 1934 (16.61 phút)
+
+
+==============================================================================
+KẾT QUẢ — TRANSFORMER trên ml-1m.txt
+==============================================================================
+chỉ số                  base            +SIRM+     chênh       t   p<.05
+------------------------------------------------------------------------------
+HR@5           0.0403±0.0015     0.0406±0.0021    +0.7%    0.29   không
+HR@10          0.0602±0.0025     0.0615±0.0037    +2.1%    0.65   không
+NDCG@5         0.0266±0.0010     0.0265±0.0015    -0.5%   -0.20   không
+NDCG@10        0.0330±0.0013     0.0332±0.0020    +0.6%    0.23   không
+AD@5            1406.6±124.7      1416.6±103.5    +0.7%    0.14   không
+AD@10           1789.8±136.3      1820.2±110.7    +1.7%    0.38   không
+
+==============================================================================
+ĐUÔI DÀI — HR@10 theo nhóm (G1 đầu .. G4 đuôi sâu)
+==============================================================================
+nhóm   #test             base           +SIRM+      chênh       t
+------------------------------------------------------------------------------
+G1      4064    0.0613±0.0022    0.0627±0.0033      +2.3%    0.69
+G2      1330    0.0657±0.0035    0.0690±0.0063      +5.0%    1.23
+G3       515    0.0505±0.0071    0.0454±0.0040     -10.0%   -1.63
+G4       131    0.0107±0.0087    0.0107±0.0042      +0.0%   -0.00
+
+Đã lưu -> paper_ml1m_results\res_transformer_ml1m.json
+PS D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot version 2\pilot> 

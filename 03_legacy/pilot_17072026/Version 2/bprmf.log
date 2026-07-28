@@ -1,0 +1,200 @@
+thiết bị : cuda
+dữ liệu  : D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot\pilot\17072026\Version 1\ml-1m.txt
+seed     : [42, 2024, 3407, 8888, 12345]
+
+[base] seed 42
+    epoch   5 | loss 0.2702 | val HR@10 0.0482 NDCG@10 0.0237
+    epoch  10 | loss 0.2394 | val HR@10 0.0581 NDCG@10 0.0277
+    epoch  15 | loss 0.2288 | val HR@10 0.0589 NDCG@10 0.0298
+    epoch  20 | loss 0.2222 | val HR@10 0.0575 NDCG@10 0.0291
+    epoch  25 | loss 0.2184 | val HR@10 0.0613 NDCG@10 0.0304
+    epoch  30 | loss 0.2159 | val HR@10 0.0603 NDCG@10 0.0302
+    epoch  35 | loss 0.2146 | val HR@10 0.0591 NDCG@10 0.0293
+    epoch  40 | loss 0.2132 | val HR@10 0.0608 NDCG@10 0.0299
+    epoch  45 | loss 0.2130 | val HR@10 0.0583 NDCG@10 0.0286
+    epoch  50 | loss 0.2120 | val HR@10 0.0586 NDCG@10 0.0293
+    dừng sớm ở epoch 50
+  -> test HR@10 0.0596 NDCG@10 0.0295 AD@10 880 (1.3 phút)
+
+[base] seed 2024
+    epoch   5 | loss 0.2680 | val HR@10 0.0492 NDCG@10 0.0245
+    epoch  10 | loss 0.2391 | val HR@10 0.0588 NDCG@10 0.0286
+    epoch  15 | loss 0.2284 | val HR@10 0.0583 NDCG@10 0.0294
+    epoch  20 | loss 0.2222 | val HR@10 0.0604 NDCG@10 0.0299
+    epoch  25 | loss 0.2187 | val HR@10 0.0598 NDCG@10 0.0297
+    epoch  30 | loss 0.2159 | val HR@10 0.0594 NDCG@10 0.0295
+    epoch  35 | loss 0.2145 | val HR@10 0.0596 NDCG@10 0.0304
+    epoch  40 | loss 0.2137 | val HR@10 0.0581 NDCG@10 0.0291
+    epoch  45 | loss 0.2130 | val HR@10 0.0575 NDCG@10 0.0291
+    dừng sớm ở epoch 45
+  -> test HR@10 0.0578 NDCG@10 0.0294 AD@10 875 (1.1 phút)
+
+[base] seed 3407
+    epoch   5 | loss 0.2685 | val HR@10 0.0513 NDCG@10 0.0249
+    epoch  10 | loss 0.2392 | val HR@10 0.0568 NDCG@10 0.0278
+    epoch  15 | loss 0.2282 | val HR@10 0.0606 NDCG@10 0.0300
+    epoch  20 | loss 0.2226 | val HR@10 0.0614 NDCG@10 0.0310
+    epoch  25 | loss 0.2188 | val HR@10 0.0608 NDCG@10 0.0301
+    epoch  30 | loss 0.2164 | val HR@10 0.0601 NDCG@10 0.0299
+    epoch  35 | loss 0.2143 | val HR@10 0.0604 NDCG@10 0.0301
+    epoch  40 | loss 0.2133 | val HR@10 0.0568 NDCG@10 0.0287
+    epoch  45 | loss 0.2126 | val HR@10 0.0555 NDCG@10 0.0279
+    dừng sớm ở epoch 45
+  -> test HR@10 0.0594 NDCG@10 0.0301 AD@10 861 (1.09 phút)
+
+[base] seed 8888
+    epoch   5 | loss 0.2682 | val HR@10 0.0497 NDCG@10 0.0246
+    epoch  10 | loss 0.2399 | val HR@10 0.0578 NDCG@10 0.0290
+    epoch  15 | loss 0.2280 | val HR@10 0.0608 NDCG@10 0.0296
+    epoch  20 | loss 0.2225 | val HR@10 0.0603 NDCG@10 0.0302
+    epoch  25 | loss 0.2189 | val HR@10 0.0614 NDCG@10 0.0306
+    epoch  30 | loss 0.2165 | val HR@10 0.0603 NDCG@10 0.0305
+    epoch  35 | loss 0.2144 | val HR@10 0.0618 NDCG@10 0.0305
+    epoch  40 | loss 0.2136 | val HR@10 0.0575 NDCG@10 0.0289
+    epoch  45 | loss 0.2132 | val HR@10 0.0578 NDCG@10 0.0289
+    epoch  50 | loss 0.2122 | val HR@10 0.0579 NDCG@10 0.0287
+    epoch  55 | loss 0.2115 | val HR@10 0.0591 NDCG@10 0.0292
+    epoch  60 | loss 0.2109 | val HR@10 0.0578 NDCG@10 0.0285
+    dừng sớm ở epoch 60
+  -> test HR@10 0.0566 NDCG@10 0.0283 AD@10 895 (1.44 phút)
+
+[base] seed 12345
+    epoch   5 | loss 0.2673 | val HR@10 0.0478 NDCG@10 0.0237
+    epoch  10 | loss 0.2396 | val HR@10 0.0586 NDCG@10 0.0287
+    epoch  15 | loss 0.2286 | val HR@10 0.0594 NDCG@10 0.0293
+    epoch  20 | loss 0.2223 | val HR@10 0.0591 NDCG@10 0.0295
+    epoch  25 | loss 0.2185 | val HR@10 0.0594 NDCG@10 0.0301
+    epoch  30 | loss 0.2170 | val HR@10 0.0588 NDCG@10 0.0293
+    epoch  35 | loss 0.2149 | val HR@10 0.0576 NDCG@10 0.0284
+    epoch  40 | loss 0.2134 | val HR@10 0.0589 NDCG@10 0.0298
+    dừng sớm ở epoch 40
+  -> test HR@10 0.0583 NDCG@10 0.0292 AD@10 818 (0.99 phút)
+
+[sirm] seed 42
+    epoch   5 | loss 0.2639 | val HR@10 0.0480 NDCG@10 0.0238
+    epoch  10 | loss 0.2391 | val HR@10 0.0535 NDCG@10 0.0259
+    epoch  15 | loss 0.2210 | val HR@10 0.0581 NDCG@10 0.0289
+    epoch  20 | loss 0.2126 | val HR@10 0.0594 NDCG@10 0.0299
+    epoch  25 | loss 0.2060 | val HR@10 0.0593 NDCG@10 0.0295
+    epoch  30 | loss 0.1996 | val HR@10 0.0613 NDCG@10 0.0299
+    epoch  35 | loss 0.1963 | val HR@10 0.0624 NDCG@10 0.0301
+    epoch  40 | loss 0.1921 | val HR@10 0.0618 NDCG@10 0.0300
+    epoch  45 | loss 0.1897 | val HR@10 0.0603 NDCG@10 0.0302
+    epoch  50 | loss 0.1884 | val HR@10 0.0644 NDCG@10 0.0308
+    epoch  55 | loss 0.1881 | val HR@10 0.0618 NDCG@10 0.0305
+    epoch  60 | loss 0.1864 | val HR@10 0.0639 NDCG@10 0.0306
+    epoch  65 | loss 0.1852 | val HR@10 0.0626 NDCG@10 0.0317
+    epoch  70 | loss 0.1838 | val HR@10 0.0606 NDCG@10 0.0299
+    epoch  75 | loss 0.1827 | val HR@10 0.0659 NDCG@10 0.0317
+    epoch  80 | loss 0.1818 | val HR@10 0.0606 NDCG@10 0.0300
+    epoch  85 | loss 0.1808 | val HR@10 0.0644 NDCG@10 0.0308
+    epoch  90 | loss 0.1802 | val HR@10 0.0629 NDCG@10 0.0308
+    epoch  95 | loss 0.1789 | val HR@10 0.0594 NDCG@10 0.0294
+    epoch 100 | loss 0.1790 | val HR@10 0.0618 NDCG@10 0.0296
+    dừng sớm ở epoch 100
+  -> test HR@10 0.0603 NDCG@10 0.0300 AD@10 1396 (3.15 phút)
+
+[sirm] seed 2024
+    epoch   5 | loss 0.2867 | val HR@10 0.0432 NDCG@10 0.0208
+    epoch  10 | loss 0.2448 | val HR@10 0.0498 NDCG@10 0.0242
+    epoch  15 | loss 0.2260 | val HR@10 0.0538 NDCG@10 0.0264
+    epoch  20 | loss 0.2130 | val HR@10 0.0556 NDCG@10 0.0272
+    epoch  25 | loss 0.2058 | val HR@10 0.0568 NDCG@10 0.0272
+    epoch  30 | loss 0.2000 | val HR@10 0.0603 NDCG@10 0.0289
+    epoch  35 | loss 0.1964 | val HR@10 0.0596 NDCG@10 0.0294
+    epoch  40 | loss 0.1935 | val HR@10 0.0608 NDCG@10 0.0293
+    epoch  45 | loss 0.1922 | val HR@10 0.0581 NDCG@10 0.0292
+    epoch  50 | loss 0.1890 | val HR@10 0.0639 NDCG@10 0.0310
+    epoch  55 | loss 0.1869 | val HR@10 0.0616 NDCG@10 0.0309
+    epoch  60 | loss 0.1849 | val HR@10 0.0631 NDCG@10 0.0317
+    epoch  65 | loss 0.1845 | val HR@10 0.0649 NDCG@10 0.0311
+    epoch  70 | loss 0.1848 | val HR@10 0.0594 NDCG@10 0.0297
+    epoch  75 | loss 0.1826 | val HR@10 0.0654 NDCG@10 0.0324
+    epoch  80 | loss 0.1813 | val HR@10 0.0606 NDCG@10 0.0302
+    epoch  85 | loss 0.1815 | val HR@10 0.0647 NDCG@10 0.0308
+    epoch  90 | loss 0.1800 | val HR@10 0.0626 NDCG@10 0.0307
+    epoch  95 | loss 0.1797 | val HR@10 0.0634 NDCG@10 0.0312
+    epoch 100 | loss 0.1792 | val HR@10 0.0662 NDCG@10 0.0321
+    epoch 105 | loss 0.1780 | val HR@10 0.0649 NDCG@10 0.0310
+    epoch 110 | loss 0.1775 | val HR@10 0.0656 NDCG@10 0.0318
+    epoch 115 | loss 0.1771 | val HR@10 0.0662 NDCG@10 0.0319
+    epoch 120 | loss 0.1758 | val HR@10 0.0639 NDCG@10 0.0302
+    epoch 125 | loss 0.1751 | val HR@10 0.0644 NDCG@10 0.0313
+    dừng sớm ở epoch 125
+  -> test HR@10 0.0604 NDCG@10 0.0299 AD@10 1346 (4.28 phút)
+
+[sirm] seed 3407
+    epoch   5 | loss 0.2790 | val HR@10 0.0442 NDCG@10 0.0211
+    epoch  10 | loss 0.2410 | val HR@10 0.0517 NDCG@10 0.0253
+    epoch  15 | loss 0.2245 | val HR@10 0.0583 NDCG@10 0.0273
+    epoch  20 | loss 0.2151 | val HR@10 0.0570 NDCG@10 0.0284
+    epoch  25 | loss 0.2079 | val HR@10 0.0563 NDCG@10 0.0286
+    epoch  30 | loss 0.2015 | val HR@10 0.0647 NDCG@10 0.0310
+    epoch  35 | loss 0.1964 | val HR@10 0.0621 NDCG@10 0.0311
+    epoch  40 | loss 0.1947 | val HR@10 0.0623 NDCG@10 0.0297
+    epoch  45 | loss 0.1921 | val HR@10 0.0632 NDCG@10 0.0305
+    epoch  50 | loss 0.1892 | val HR@10 0.0657 NDCG@10 0.0321
+    epoch  55 | loss 0.1869 | val HR@10 0.0656 NDCG@10 0.0311
+    epoch  60 | loss 0.1856 | val HR@10 0.0646 NDCG@10 0.0311
+    epoch  65 | loss 0.1841 | val HR@10 0.0634 NDCG@10 0.0307
+    epoch  70 | loss 0.1833 | val HR@10 0.0666 NDCG@10 0.0320
+    epoch  75 | loss 0.1835 | val HR@10 0.0649 NDCG@10 0.0324
+    epoch  80 | loss 0.1826 | val HR@10 0.0616 NDCG@10 0.0298
+    epoch  85 | loss 0.1807 | val HR@10 0.0621 NDCG@10 0.0302
+    epoch  90 | loss 0.1800 | val HR@10 0.0619 NDCG@10 0.0300
+    epoch  95 | loss 0.1794 | val HR@10 0.0611 NDCG@10 0.0294
+    dừng sớm ở epoch 95
+  -> test HR@10 0.0616 NDCG@10 0.0299 AD@10 1295 (3.25 phút)
+
+[sirm] seed 8888
+    epoch   5 | loss 0.2664 | val HR@10 0.0503 NDCG@10 0.0254
+    epoch  10 | loss 0.2382 | val HR@10 0.0545 NDCG@10 0.0271
+    epoch  15 | loss 0.2203 | val HR@10 0.0576 NDCG@10 0.0271
+    epoch  20 | loss 0.2122 | val HR@10 0.0586 NDCG@10 0.0285
+    epoch  25 | loss 0.2062 | val HR@10 0.0609 NDCG@10 0.0302
+    epoch  30 | loss 0.1995 | val HR@10 0.0608 NDCG@10 0.0297
+    epoch  35 | loss 0.1946 | val HR@10 0.0584 NDCG@10 0.0291
+    epoch  40 | loss 0.1927 | val HR@10 0.0608 NDCG@10 0.0294
+    epoch  45 | loss 0.1918 | val HR@10 0.0646 NDCG@10 0.0324
+    epoch  50 | loss 0.1911 | val HR@10 0.0647 NDCG@10 0.0315
+    epoch  55 | loss 0.1887 | val HR@10 0.0613 NDCG@10 0.0297
+    epoch  60 | loss 0.1866 | val HR@10 0.0619 NDCG@10 0.0300
+    epoch  65 | loss 0.1847 | val HR@10 0.0624 NDCG@10 0.0304
+    epoch  70 | loss 0.1833 | val HR@10 0.0634 NDCG@10 0.0306
+    epoch  75 | loss 0.1830 | val HR@10 0.0632 NDCG@10 0.0304
+    dừng sớm ở epoch 75
+  -> test HR@10 0.0591 NDCG@10 0.0291 AD@10 1205 (2.56 phút)
+
+[sirm] seed 12345
+    epoch   5 | loss 0.2838 | val HR@10 0.0406 NDCG@10 0.0196
+    epoch  10 | loss 0.2399 | val HR@10 0.0503 NDCG@10 0.0237
+    epoch  15 | loss 0.2200 | val HR@10 0.0510 NDCG@10 0.0239
+    epoch  20 | loss 0.2108 | val HR@10 0.0566 NDCG@10 0.0271
+    epoch  25 | loss 0.2045 | val HR@10 0.0570 NDCG@10 0.0281
+    epoch  30 | loss 0.2008 | val HR@10 0.0578 NDCG@10 0.0277
+    epoch  35 | loss 0.1965 | val HR@10 0.0593 NDCG@10 0.0288
+    epoch  40 | loss 0.1927 | val HR@10 0.0560 NDCG@10 0.0276
+    epoch  45 | loss 0.1925 | val HR@10 0.0647 NDCG@10 0.0320
+    epoch  50 | loss 0.1893 | val HR@10 0.0594 NDCG@10 0.0295
+    epoch  55 | loss 0.1883 | val HR@10 0.0631 NDCG@10 0.0303
+    epoch  60 | loss 0.1862 | val HR@10 0.0606 NDCG@10 0.0292
+    epoch  65 | loss 0.1845 | val HR@10 0.0632 NDCG@10 0.0302
+    epoch  70 | loss 0.1838 | val HR@10 0.0646 NDCG@10 0.0310
+    dừng sớm ở epoch 70
+  -> test HR@10 0.0575 NDCG@10 0.0286 AD@10 1199 (2.39 phút)
+
+==============================================================================
+KẾT QUẢ — BPR-MF trên ML-1M (trung bình ± độ lệch chuẩn qua 5 seed)
+==============================================================================
+chỉ số                      gốc               +SIRM+     chênh  t ghép cặp
+------------------------------------------------------------------------------
+HR@5            0.0329 ± 0.0013      0.0348 ± 0.0019     +5.7%      t=1.94
+HR@10           0.0583 ± 0.0012      0.0598 ± 0.0016     +2.4%      t=2.15
+NDCG@5          0.0212 ± 0.0006      0.0215 ± 0.0008     +1.7%      t=0.74
+NDCG@10         0.0293 ± 0.0007      0.0295 ± 0.0006     +0.6%      t=0.65
+AD@5               651.8 ± 31.2         975.0 ± 66.3    +49.6%     t=11.04
+AD@10              865.8 ± 29.4        1288.2 ± 86.4    +48.8%     t=11.81
+------------------------------------------------------------------------------
+Với 5 seed (df=4): |t| > 2.78 mới tương ứng p < 0.05 (hai phía).
+
+Đã lưu -> D:\HocTap\Hoc_Tap\Hufi\CNTT\Thac_Si\HK3\Đề án\Luan_Van\pilot\pilot\17072026\Version 2\results_bprmf_ml1m.json

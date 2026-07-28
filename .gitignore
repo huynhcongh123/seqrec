@@ -1,0 +1,19 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+__MACOSX/
+__pycache__/
+*.py[cod]
+
+# Codex/internal metadata
+.agents/
+.codex/
+
+# Python local envs
+.venv/
+venv/
+env/
+
+# Temporary files
+*.tmp
+*.bak.tmp
