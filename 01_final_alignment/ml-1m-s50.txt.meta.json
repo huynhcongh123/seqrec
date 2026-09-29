@@ -1,0 +1,12 @@
+{
+  "input": "D:\\HocTap\\Hoc_Tap\\Hufi\\CNTT\\Thac_Si\\HK3\\\u0110\u1ec1 \u00e1n\\Luan_Van\\pilot_hop_nhat\\01_final_alignment\\ml-1m.txt",
+  "output": "D:\\HocTap\\Hoc_Tap\\Hufi\\CNTT\\Thac_Si\\HK3\\\u0110\u1ec1 \u00e1n\\Luan_Van\\pilot_hop_nhat\\01_final_alignment\\ml-1m-s50.txt",
+  "keep_rate": 0.5,
+  "seed": 2026,
+  "min_len": 3,
+  "users": 6040,
+  "source_interactions": 997579,
+  "output_interactions": 499570,
+  "source_items": 3654,
+  "output_items": 3654
+}

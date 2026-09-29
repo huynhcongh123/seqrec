@@ -10,16 +10,31 @@
 
 $ErrorActionPreference = "Stop"
 $seeds5 = "42","2024","3407","8888","12345"
-$seeds3 = "42","2024","3407"
+
+function Run-Step {
+    param(
+        [string]$Name,
+        [string[]]$ArgsList
+    )
+
+    Write-Host $Name -ForegroundColor Cyan
+    & python @ArgsList
+    if ($LASTEXITCODE -ne 0) {
+        throw "Python failed with exit code $LASTEXITCODE while running: $Name"
+    }
+}
 
 Write-Host "=== [1/3] MF trên AmazonBook (quan trọng nhất) ===" -ForegroundColor Cyan
-python sirm_experiments.py --model mf   --data AmazonBook.txt --device cuda --eval-every 10 --pca-dim 64 --seeds $seeds5 --out res_mf_amazon.json
+$mfArgs = @("sirm_experiments.py", "--model", "mf", "--data", "AmazonBook.txt", "--device", "cuda", "--eval-every", "10", "--pca-dim", "64", "--seeds") + $seeds5 + @("--out", "res_mf_amazon.json")
+Run-Step "=== [1/3] MF AmazonBook ===" $mfArgs
 
 Write-Host "=== [2/3] FPMC trên AmazonBook ===" -ForegroundColor Cyan
-python sirm_experiments.py --model fpmc --data AmazonBook.txt --device cuda --eval-every 10 --pca-dim 64 --seeds $seeds5 --out res_fpmc_amazon.json
+$fpmcArgs = @("sirm_experiments.py", "--model", "fpmc", "--data", "AmazonBook.txt", "--device", "cuda", "--eval-every", "10", "--pca-dim", "64", "--seeds") + $seeds5 + @("--out", "res_fpmc_amazon.json")
+Run-Step "=== [2/3] FPMC AmazonBook ===" $fpmcArgs
 
 Write-Host "=== [3/3] Transformer trên AmazonBook ===" -ForegroundColor Cyan
-python sirm_experiments.py --model transformer --data AmazonBook.txt --device cuda --eval-every 10 --pca-dim 64 --maxlen 50 --seeds $seeds3 --out res_transformer_amazon.json
+$transformerArgs = @("sirm_experiments.py", "--model", "transformer", "--data", "AmazonBook.txt", "--device", "cuda", "--eval-every", "10", "--pca-dim", "64", "--maxlen", "50", "--batch", "16", "--seeds") + $seeds5 + @("--out", "res_transformer_amazon.json")
+Run-Step "=== [3/3] Transformer AmazonBook (batch 16) ===" $transformerArgs
 
 Write-Host ""
 Write-Host "XONG. Gửi lại 3 file: res_mf_amazon.json, res_fpmc_amazon.json, res_transformer_amazon.json" -ForegroundColor Green

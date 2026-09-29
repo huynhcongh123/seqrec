@@ -29,6 +29,7 @@ import argparse
 import json
 import math
 import random
+import sys
 import time
 from pathlib import Path
 
@@ -42,6 +43,10 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 
 np.seterr(divide="ignore", over="ignore", invalid="ignore")
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except AttributeError:
+    pass
 
 
 # ============================================================ tất định ======
@@ -55,6 +60,10 @@ def set_seed(seed):
     torch.use_deterministic_algorithms(True, warn_only=True)
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
+    if hasattr(torch.backends, "cuda"):
+        torch.backends.cuda.enable_flash_sdp(False)
+        torch.backends.cuda.enable_mem_efficient_sdp(False)
+        torch.backends.cuda.enable_math_sdp(True)
 
 
 # =============================================================== dữ liệu =====
@@ -226,7 +235,7 @@ class FactorModel(nn.Module):
 
     Điểm số item i cho user u, item liền trước l:
         MF   : <P_u,        V_i>
-        FPMC : <P_u + V_l,  V_i>
+        FPMC : <P_u, V_i> + <transition_source_l, transition_target_i>
     """
     mode = "bpr"
 
@@ -236,27 +245,53 @@ class FactorModel(nn.Module):
         self.user_emb = nn.Embedding(num_users + 1, dim)
         self.item_emb = nn.Embedding(num_items + 1, dim, padding_idx=0)
         self.item_bias = nn.Embedding(num_items + 1, 1, padding_idx=0)
+        if use_prev:
+            self.trans_src_emb = nn.Embedding(num_items + 1, dim, padding_idx=0)
+            self.trans_tgt_emb = nn.Embedding(num_items + 1, dim, padding_idx=0)
         self.sirm = sirm
         nn.init.normal_(self.user_emb.weight, std=0.02)
         nn.init.normal_(self.item_emb.weight, std=0.02)
         nn.init.zeros_(self.item_bias.weight)
+        if use_prev:
+            nn.init.normal_(self.trans_src_emb.weight, std=0.02)
+            nn.init.normal_(self.trans_tgt_emb.weight, std=0.02)
         with torch.no_grad():
             self.item_emb.weight[0].zero_()
+            if use_prev:
+                self.trans_src_emb.weight[0].zero_()
+                self.trans_tgt_emb.weight[0].zero_()
+
+    def _prior(self, device):
+        if self.sirm is None:
+            return None
+        prior = self.sirm(torch.arange(self.item_emb.num_embeddings, device=device))
+        prior = prior.clone()
+        prior[0].zero_()
+        return self.sirm.lam * prior
 
     def item_matrix(self):
         W = self.item_emb.weight
-        if self.sirm is not None:
-            W = W + self.sirm.lam * self.sirm(torch.arange(W.size(0), device=W.device))
+        prior = self._prior(W.device)
+        if prior is not None:
+            W = W + prior
         return W
 
-    def context(self, users, prev, V):
-        c = self.user_emb(users)
-        if self.use_prev:
-            c = c + V[prev]
-        return c
+    def transition_matrices(self):
+        if not self.use_prev:
+            return None, None
+        src, tgt = self.trans_src_emb.weight, self.trans_tgt_emb.weight
+        prior = self._prior(src.device)
+        if prior is not None:
+            src, tgt = src + prior, tgt + prior
+        return src, tgt
 
     def score_all(self, users, prev, seq, V):
-        return self.context(users, prev, V) @ V.t() + self.item_bias.weight.squeeze(-1)
+        if self.use_prev:
+            src, tgt = self.transition_matrices()
+            return (self.user_emb(users) @ V.t()
+                    + src[prev] @ tgt.t()
+                    + self.item_bias.weight.squeeze(-1))
+        return self.user_emb(users) @ V.t() + self.item_bias.weight.squeeze(-1)
 
 
 class PositionalEncoding(nn.Module):
@@ -374,9 +409,18 @@ def train_bpr(model, sampler, opt, batch, device):
         u = torch.from_numpy(u).to(device); pv = torch.from_numpy(pv).to(device)
         po = torch.from_numpy(po).to(device); ng = torch.from_numpy(ng).to(device)
         V = model.item_matrix()
-        c = model.context(u, pv, V)
-        s_pos = (c * V[po]).sum(-1) + model.item_bias(po).squeeze(-1)
-        s_neg = (c * V[ng]).sum(-1) + model.item_bias(ng).squeeze(-1)
+        user = model.user_emb(u)
+        if model.use_prev:
+            src, tgt = model.transition_matrices()
+            s_pos = ((user * V[po]).sum(-1)
+                     + (src[pv] * tgt[po]).sum(-1)
+                     + model.item_bias(po).squeeze(-1))
+            s_neg = ((user * V[ng]).sum(-1)
+                     + (src[pv] * tgt[ng]).sum(-1)
+                     + model.item_bias(ng).squeeze(-1))
+        else:
+            s_pos = (user * V[po]).sum(-1) + model.item_bias(po).squeeze(-1)
+            s_neg = (user * V[ng]).sum(-1) + model.item_bias(ng).squeeze(-1)
         loss = -F.logsigmoid(s_pos - s_neg).mean()
         opt.zero_grad(); loss.backward(); opt.step()
         tot += loss.item(); nb += 1
@@ -549,6 +593,7 @@ def main():
     p.add_argument("--device", default="auto", choices=["auto", "cuda", "mps", "cpu"],
                    help="cpu cho kết quả tất định tuyệt đối (chậm hơn)")
     p.add_argument("--out", default=None)
+    p.add_argument("--implementation", default="reviewer-v2-canonical-fpmc")
     args = p.parse_args()
     here = Path(__file__).resolve().parent
     args.cache = here / ".cache"

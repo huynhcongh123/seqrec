@@ -3,7 +3,7 @@
 # Supports resume: existing A_*.json files are reused when config matches.
 
 $ErrorActionPreference = "Stop"
-$seeds3 = "42","2024","3407"
+$seeds5 = "42","2024","3407","8888","12345"
 
 function Run-Step {
     param(
@@ -34,7 +34,7 @@ foreach ($ds in $datasets) {
             "--variants", "base", "--alignment", "--device", $ds.dev,
             "--eval-every", "10", "--pca-dim", $ds.pca, "--maxlen", $maxlen,
             "--batch", $batch, "--seeds"
-        ) + $seeds3 + @("--out", "A_$($model)_$($ds.name).json")
+        ) + $seeds5 + @("--out", "A_$($model)_$($ds.name).json")
         Run-Step $name $argsList
     }
 }
